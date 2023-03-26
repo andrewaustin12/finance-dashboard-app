@@ -1,9 +1,12 @@
+import { useGetKpisQuery } from '@/state/api';
 import React from 'react'
 import DashboardBox from './DashboardBox';
 
 type Props = {}
 
 const Row1 = (props: Props) => {
+  const { data } = useGetKpisQuery();
+
   return (
     <>
       <DashboardBox gridArea="a"></DashboardBox>
