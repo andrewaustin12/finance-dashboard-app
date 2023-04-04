@@ -1,9 +1,10 @@
 import { Box, useMediaQuery } from "@mui/material";
-import Row1 from "@/components/Row1";
-import Row2 from "@/components/Row2";
-import Row3 from "@/components/Row3";
+import Row1 from "./Row1";
+import Row2 from "./Row2";
+import Row3 from "./Row3";
 
 const gridTemplateLargeScreens = `
+  "a b c"
   "a b c"
   "a b c"
   "a b f"
@@ -49,29 +50,30 @@ const gridTemplateSmallScreens = `
 `;
 
 const Dashboard = () => {
-  const isAboveMediumScreens = useMediaQuery("(min-width: 1200px")
-
+  const isAboveMediumScreens = useMediaQuery("(min-width: 1200px)");
   return (
-    <Box 
-      width="100%" 
+    <Box
+      width="100%"
       height="100%"
-      display="grid" 
+      display="grid"
       gap="1.5rem"
       sx={
-        isAboveMediumScreens ? {
-          gridTemplateColumns: "repeat(3, minmax(370px, 1fr))",
-          gridTemplateRows: "repeat(10, minmax(60px, 1fr))",
-          gridTemplateAreas: gridTemplateLargeScreens
-        } : {
-          gridAutoColumns: "1fr",
-          gridAutoRows: "80px",
-          gridTemplateAreas: gridTemplateSmallScreens
-        }
+        isAboveMediumScreens
+          ? {
+              gridTemplateColumns: "repeat(3, minmax(370px, 1fr))",
+              gridTemplateRows: "repeat(10, minmax(60px, 1fr))",
+              gridTemplateAreas: gridTemplateLargeScreens,
+            }
+          : {
+              gridAutoColumns: "1fr",
+              gridAutoRows: "80px",
+              gridTemplateAreas: gridTemplateSmallScreens,
+            }
       }
     >
-      <Row1></Row1>
-      <Row2></Row2>
-      <Row3></Row3>
+      <Row1 />
+      <Row2 />
+      <Row3 />
     </Box>
   );
 };

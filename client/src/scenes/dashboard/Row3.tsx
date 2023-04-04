@@ -1,5 +1,5 @@
 import React from 'react'
-import DashboardBox from './DashboardBox';
+import DashboardBox from '@/components/DashboardBox';
 
 type Props = {}
 
